@@ -2,7 +2,7 @@
 CV
 ==
 
-.. image:: face.jpg
+.. image:: ../assets/face.jpg
    :align: center
 
 ---------

@@ -10,7 +10,7 @@ Contents:
 
 Graduate School of Science, Nagoya University
 
-.. image:: cover-image.png
+.. image:: ../assets/cover-image.png
    :align: center
    :width: 600px
 

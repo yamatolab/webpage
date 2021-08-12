@@ -4,7 +4,7 @@ CURP
 
 CURP (CURrent calculation for Proteins)
  
-.. image:: curp_logo.jpg
+.. image:: ../assets/curp_logo.jpg
    :align: left
    :width: 100px
 

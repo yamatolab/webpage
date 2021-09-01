@@ -21,7 +21,10 @@ jobs:
       run: pip install -U sphinx
     
     - name: Build pages
-      run: sphinx-build -b html -c . pages public
+      run: sphinx-build -b html -c . pages public/yamato-lab
+
+    - name: Copy redirect from / to yamatolab/
+      run: cp redirect.html public/yamato-lab/index.html
     
     - name: Deploy pages
       uses: peaceiris/actions-gh-pages@v3

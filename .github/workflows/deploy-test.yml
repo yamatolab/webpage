@@ -1,0 +1,35 @@
+name: Deploy test pages
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    
+    - name: Install sphinx
+      run: pip install -U sphinx
+    
+    - name: Build pages
+      run: sphinx-build -b html -c . pages public/yamato-lab
+
+    - name: Copy redirect from / to yamatolab/
+      run: cp redirect.html public/index.html
+    
+    - name: Deploy pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.SSH_KEY_TO_TEST_PAGE_REPO }}
+        external_repository: yamatolab/yamatolab.github.io
+        publish_dir: ./public
+    

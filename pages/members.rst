@@ -12,4 +12,4 @@ Members
    "M1", "Saito YU", "saito.yu[at]f.mbox.nagoya-u.ac.jp"
    "B4", "Sugiura WATARU", "sugiura.wataru[at]f.mbox.nagoya-u.ac.jp"
    "B4", "Arita YOICHI", "arita.yoichi[at]j.mbox.nagoya-u.ac.jp"
-   
+  

@@ -1,0 +1,92 @@
+################################################################################
+# VISUALIZING HOs (HYBRID ORBITALs) by GNUPLOT
+#
+# USAGE: gnuplot -persist hybrid.gplot
+#
+################################################################################
+
+### setup 
+scl=1.0                    # scale of the system
+set view 60, 30, 1, 1.7    # viewpoint
+set xrange [-scl:scl]
+set yrange [-scl:scl]
+set zrange [-scl:scl]
+set noborder
+set noxtics
+set noytics
+set noztics
+set nokey
+
+# xyz axes
+set arrow 1 from -scl, 0, 0 to scl, 0, 0 lw 1 
+set arrow 2 from 0, -scl, 0 to 0, scl, 0 lw 1
+set arrow 3 from 0, 0, -scl/1.6 to 0, 0, scl/1.6 lw 1
+set label 'x' at scl,-.25*scl,0
+set label 'y' at 0,1.1*scl,-.15*scl
+set label 'z' at 0.10*scl/1.6,0,scl/1.6
+
+# 3D spherical polar coordinates ####
+set parametric
+r=1.0               # r
+set urange [0:pi]   # theta
+set vrange [-pi:pi] # phi
+x(u,v)=r*sin(u)*cos(v)
+y(u,v)=r*sin(u)*sin(v)
+z(u,v)=r*cos(u)
+set isosamples 26, 50
+set hidden3d
+
+### AOs
+# s 
+s(u,v)=sqrt(1.0/4.0/pi)
+# p 
+p_z(u,v)=sqrt(3.0/4.0/pi)*cos(u)         
+p_x(u,v)=sqrt(3.0/4.0/pi)*sin(u)*cos(v)  
+p_y(u,v)=sqrt(3.0/4.0/pi)*sin(u)*sin(v)
+# d 
+d_3z2_minus_1(u,v)=sqrt( 5.0/16.0/pi)*(3.0*cos(u)**2-1.0)         
+d_zx(u,v)         =sqrt(15.0/16.0/pi)*sin(2.0*u)*cos(v)             
+d_yz(u,v)         =sqrt(15.0/16.0/pi)*sin(2.0*u)*sin(v)            
+d_x2_minus_y2(u,v)=sqrt(15.0/16.0/pi)*sin(u)**2*cos(2.0*v)    
+d_xy(u,v)         =sqrt(15.0/16.0/pi)*sin(u)**2*sin(2.0*v)      
+# f
+f_z5z2_minus_3(u,v)=sqrt(  7.0/16.0/pi)*(5.0*cos(u)**2-3.0)*cos(u)        
+f_x5z2_minus_1(u,v)=sqrt( 21.0/32.0/pi)*(5.0*cos(u)**2-1.0)*sin(u)*cos(v) 
+f_y5z2_minus_1(u,v)=sqrt( 21.0/32.0/pi)*(5.0*cos(u)**2-1.0)*sin(u)*sin(v) 
+f_zx2_minus_y2(u,v)=sqrt(105.0/16.0/pi)*cos(u)*sin(u)**2*cos(2.0*v)     
+f_xyz(u,v)       =sqrt(105.0/16.0/pi)*cos(u)*sin(u)**2*sin(2.0*v)       
+f_xx2_minus_3y2(u,v)=sqrt( 35.0/32.0/pi)*sin(u)**3*cos(3.0*v)             
+f_y3x2_minus_y2(u,v)=sqrt( 35.0/32.0/pi)*sin(u)**3*sin(3.0*v)           
+
+# hybrid orbitals 
+# sp
+sp_a(u,v)=sqrt(1.0/2.0)*(s(u,v)+p_z(u,v))
+sp_b(u,v)=sqrt(1.0/2.0)*(s(u,v)-p_z(u,v))
+# sp2
+sp2_a(u,v)=sqrt(1.0/3.0)*(s(u,v)+sqrt(2.0)*p_x(u,v))
+sp2_b(u,v)=sqrt(1.0/3.0)*(s(u,v)-sqrt(1.0/2.0)*p_x(u,v)+sqrt(3.0/2.0)*p_y(u,v))
+sp2_c(u,v)=sqrt(1.0/3.0)*(s(u,v)-sqrt(1.0/2.0)*p_x(u,v)-sqrt(3.0/2.0)*p_y(u,v))
+# sp3
+sp3_a(u,v)=0.5*(s(u,v)+p_x(u,v)+p_y(u,v)+p_z(u,v))
+sp3_b(u,v)=0.5*(s(u,v)+p_x(u,v)-p_y(u,v)-p_z(u,v))
+sp3_c(u,v)=0.5*(s(u,v)-p_x(u,v)+p_y(u,v)-p_z(u,v))
+sp3_d(u,v)=0.5*(s(u,v)-p_x(u,v)-p_y(u,v)+p_z(u,v))
+
+### Selection of hybrid orbital
+#       sp orbital
+ho(u,v)=sp_a(u,v)
+#ho(u,v)=sp_b(u,v)
+#       sp2 orbitals
+#ho(u,v)=sp2_a(u,v)
+#ho(u,v)=sp2_b(u,v)
+#ho(u,v)=sp2_c(u,v)
+#       sp3 orbitals
+#ho(u,v)=sp3_a(u,v)        
+#ho(u,v)=sp3_b(u,v)           
+#ho(u,v)=sp3_c(u,v)           
+#ho(u,v)=sp3_d(u,v)         
+# plot
+plobe(u,v)= ho(u,v)<0 ? 0 :  ho(u,v) # positive lobe (red,  linecolor=1)
+nlobe(u,v)= ho(u,v)>0 ? 0 : -ho(u,v) # negative lobe (blue, linecolor=3)
+splot plobe(u,v)*x(u,v), plobe(u,v)*y(u,v), plobe(u,v)*z(u,v) lc 1 , \
+      nlobe(u,v)*x(u,v), nlobe(u,v)*y(u,v), nlobe(u,v)*z(u,v) lc 3

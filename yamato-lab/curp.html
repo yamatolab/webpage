@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>CURP &#8212; Yamato lab 1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Yamato lab 1.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CURP</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="curp">
+<h1>CURP<a class="headerlink" href="#curp" title="Permalink to this headline">¶</a></h1>
+<p>CURP (CURrent calculation for Proteins)</p>
+<a class="reference internal image-reference" href="_images/curp_logo.jpg"><img alt="_images/curp_logo.jpg" class="align-left" src="_images/curp_logo.jpg" style="width: 100px;" /></a>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.comp-biophys.com/resources/curp-tutorial/index.html">Tutorial</a></p></li>
+<li><p><a class="reference external" href="http://www.comp-biophys.com/yamato-lab/curp-download.html">Download Software (107.4 MB)</a></p></li>
+<li><p><a class="reference external" href="http://www.comp-biophys.com/resources/curp-v1.1/pdz3_DATA.tar.gz">Download Example (279.6 MB): Analysis of Energy Exchange Network of PDZ3 Domain (JCC (2015))</a></p></li>
+<li><p><a class="reference external" href="http://www.comp-biophys.com/resources/tools/Gro2Amber.tar.gz">Download Tips for converting Gromacs topology/trajectory files to Amber format (66 KB)</a></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">ver1.1: Takahisa YAMATO, Takakazu ISHIKURA, Kunitaka Ota, Tatsuya SAKAI</div>
+<div class="line">ver1.0: Takahisa YAMATO, Takakazu ISHIKURA, Yuki IWATA</div>
+<div class="line">ver0.1: Takahisa YAMATO, Tatsuro HATANO, Takakazu ISHIKURA</div>
+<div class="line">Email: yamato ‘at’ nagoya-u.jp</div>
+<div class="line"><br /></div>
+<div class="line">The physical properties of condensed matter systems can be illustrated at the microscopic scale by evaluating the continuum variables in atomistic simulations. Among condensed matter systems, native protein molecules are particularly interesting in that they realize biological functions via an energy relaxation process from the non-equilibrium state to the equilibrium state in response to external perturbations such as light illumination and ligand binding. We can characterize native proteins in terms of continuum variables and provide biophysical grounds for the molecular mechanisms of protein functions. The values of continuum variables vary from site to site in a protein molecule of interest, reflecting its inhomogeneity and anisotropy. Therefore, we can expect to find functionally important sites by analyzing the 3D field of continuum variables in a protein molecule. For instance, we analyzed electron-tunneling currents in proteins and discovered a key residue for the electron transfer reaction in DNA photolyases[1]. Other examples are the analysis of the energy-transfer pathway in photoactive yellow protein[2,3] and the identification of the “epicenter” of the protein quake in photoactive yellow protein via stress tensor analysis[4]. Note that the first quantity is related to the electron flow, the second is related to the energy flow, and the third is related to the linear momentum flow.
+The CURrent calculation for Proteins (CURP) program is written in Python and FORTRAN, reads (A) the parameters of the force-field functions and molecular topology data and (B) the atomic coordinates and velocities from the molecular dynamics trajectory, and then calculates the flow of physical quantities. The AMBER format is supported for the current version[5]. In the future, we plan to distribute an advanced version of the CURP program, and the supported formats will be extended to include those of other molecular simulation packages.</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">References:</div>
+</div>
+<ol class="arabic simple">
+<li><p>Y Miyazawa, H Nishioka, K Yura, T Yamato, Biophys J 94 (2008) 2194-203.</p></li>
+<li><p>T Ishikura, T Yamato, Chemical Physics Letters 432 (2006) 533-37.</p></li>
+<li><p>T Yamato, in: D.M. Leitner, J.E. Straub (Eds.), Proteins : energy, heat and signal flow, Taylor and Francis, New York, 2009, p. 129-47.</p></li>
+<li><p>K Koike, K Kawaguchi, T Yamato, Phys Chem Chem Phys 10 (2008) 1400-5.</p></li>
+<li><p>T Ishikura, T Hatano, T Yamato, Chemical Physics Letters 539 (2012) 144-50.</p></li>
+</ol>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/curp.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Yamato lab 1.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CURP</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014, Takahisa YAMATO.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
+    </div>
+  </body>
+</html>
